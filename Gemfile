@@ -75,3 +75,9 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "cloudinary", "~> 1.29"
+
+gem "pundit", "~> 2.3"
+
+gem "faker", "~> 3.2"
