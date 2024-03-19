@@ -1,32 +1,45 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://data.pixiz.com/output/user/frame/preview/api/big/2/7/7/1/1651772_22e30.jpg);">
-  <div class="container">
-    <h1><strong>Streamline Vehicle Reservations: <br> We Make It Effortless</strong></h2>
-      <div class="slogan">Unlock Seamless Mobility: Plan and manage your company vehicle reservations effortlessly with
-      ShareTheCars. Streamline your fleet management and empower your team to move efficiently.</div>
-    <div class="banner-cta">
-      <%= link_to cars_path, class: "btn btn-primary" do  %>
-      Get started
-      <% end %>
+<div class="banner">
+  <div class="container py-5 position-relative">
+    <div class="col-8">
+      <h1><strong>Streamline Vehicle Reservations: <br> We Make It Effortless</strong></h1>
+      <div class="slogan">
+        Unlock Seamless Mobility: Plan and manage your company vehicle reservations effortlessly with ShareTheCars. Streamline your fleet management and empower your team to move efficiently.
+      </div>
+      <div class="banner-cta">
+        <%= link_to cars_path, class: "btn btn-primary" do  %>
+        Get started
+        <% end %>
+      </div>
     </div>
+    <img src="https://pngimg.com/d/mercedes_PNG80189.png" class="img-right">
   </div>
 </div>
 <body>
   <div class="container">
     <div class="row">
-      <div class="col-md-4">
-        <div class="circle">1</div>
-        <h1>Check all available cars</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in purus tempus, scelerisque risus commodo, commodo nibh. Etiam nec tempor dui. Donec posuere tellus velit. Nunc molestie nibh non eros elementum, in tincidunt magna condimentum. </p>
+      <div class="col-12 mt-5 mb-5 text-center">
+        <h2 class="display-5 border-bottom border-secondary border-2 d-inline">Nos services</h2>
       </div>
       <div class="col-md-4">
-        <div class="circle">2</div>
-        <h1>Choose the car you prefer</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in purus tempus, scelerisque risus commodo, commodo nibh. Etiam nec tempor dui. Donec posuere tellus velit. Nunc molestie nibh non eros elementum, in tincidunt magna condimentum.</p>
+        <div class="card mx-1 p-4 text-center">
+          <div class="circle"><i class="fas fa-list"></i></div>
+          <h2>Listez les voitures disponible</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in purus tempus, scelerisque risus commodo, commodo nibh. Etiam nec tempor dui. Donec posuere tellus velit. Nunc molestie nibh non eros elementum, in tincidunt magna condimentum. </p>
+        </div>
       </div>
       <div class="col-md-4">
-      <div class="circle">3</div>
-        <h1>Drive.</h1>
+        <div class="card mx-1 p-4 text-center">
+        <div class="circle"><i class="fas fa-check"></i></div>
+        <h2>Choisissez votre voiture</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in purus tempus, scelerisque risus commodo, commodo nibh. Etiam nec tempor dui. Donec posuere tellus velit. Nunc molestie nibh non eros elementum, in tincidunt magna condimentum.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mx-1 p-4 text-center">
+      <div class="circle"><i class="fas fa-car"></i></div>
+        <h2>Roulez avec le sourire</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in purus tempus, scelerisque risus commodo, commodo nibh. Etiam nec tempor dui. Donec posuere tellus velit. Nunc molestie nibh non eros elementum, in tincidunt magna condimentum.</p>
+        </div>
       </div>
     </div>
 
