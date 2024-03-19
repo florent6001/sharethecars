@@ -22,6 +22,9 @@ module Sharethecars
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w(assets tasks))
 
+    # Change variant processor to remove warnings during db:seed
+    config.active_storage.variant_processor = :mini_magick
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

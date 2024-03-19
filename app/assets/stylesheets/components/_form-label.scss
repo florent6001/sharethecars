@@ -1,0 +1,26 @@
+.form-label {
+  margin-bottom: 0.5rem;
+  margin-top: 10px;
+}
+
+.form-signin {
+  max-width: 420px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-label {
+    color: #333;
+    font-weight: bold;
+  }
+
+  .form-check {
+    margin-bottom: 15px;
+  }
+}

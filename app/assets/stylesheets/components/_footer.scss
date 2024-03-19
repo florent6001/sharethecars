@@ -1,12 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-footer ul{
-  list-style: none;
+footer{
+  margin-top: auto;
 }
 
-.footer{
-  background-color: #24262b;
-    padding: 70px 0;
+footer ul{
+  list-style: none;
 }
 
 footer h4{
@@ -17,16 +16,18 @@ footer h4{
   font-weight: 500;
   position: relative;
 }
+
 footer h4::before{
   content: '';
   position: absolute;
   left:0;
   bottom: -10px;
-  background-color: #e91e63;
+  background-color: $secondary;
   height: 2px;
   box-sizing: border-box;
   width: 50px;
 }
+
 footer ul li:not(:last-child){
   margin-bottom: 10px;
 }
@@ -45,10 +46,12 @@ footer ul li a{
   display: block;
   transition: all 0.3s ease;
 }
+
 footer ul li a:hover{
-  color: #ffffff;
+  color: $secondary;
   padding-left: 8px;
 }
+
 footer .social-links a{
   display: inline-block;
   height: 40px;
@@ -61,7 +64,8 @@ footer .social-links a{
   color: #ffffff;
   transition: all 0.5s ease;
 }
+
 footer .social-links a:hover{
-  color: #24262b;
-  background-color: #ffffff;
+  color: #fff;
+  background-color: $secondary;
 }
