@@ -53,10 +53,11 @@ cars = Car.all
 
 5.times do |i|
   User.create!(
-    first_name: 'test',
-    last_name: 'test',
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
     phone_number: Faker::PhoneNumber.phone_number,
     owner: false,
+    company: companies.sample,
     email: "user#{i}@test.com",
     password: 'password'
   )
