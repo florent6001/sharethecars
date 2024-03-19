@@ -1,14 +1,16 @@
 .circle {
-  border: thin solid gray;
-  width: 10rem;
-  height: 10rem;
+  border: thin solid $primary;
+  width: 5rem;
+  height: 5rem;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: gray;
+  background-color: $primary;
+  margin-left: auto;
+  margin-right: auto;
   font-size: 2rem;
   font-weight: bold;
-  margin-bottom: 2rem;
-  margin-top: 5rem
+  margin-bottom: 1.5rem;
+  color: #fff;
 }
