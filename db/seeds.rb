@@ -37,7 +37,7 @@ cars_url.each do |url|
   car = Car.new(
     model: doc.search('.mw-page-title-main').text,
     color: colors.sample,
-    plate_number: "#{letters} #{numbers} #{letters2}",
+    plate_number: "#{letters}-#{numbers}-#{letters2}",
     company: companies.sample,
     base_kilomoters: rand(10_000..50_000)
   )
