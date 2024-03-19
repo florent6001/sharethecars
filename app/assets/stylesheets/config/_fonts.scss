@@ -1,9 +1,10 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@400..700&family=Wix+Madefor+Display:wght@400..800&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$body-font: "Wix Madefor Display", sans-serif;
+$headers-font: "Edu NSW ACT Foundation", cursive;
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
