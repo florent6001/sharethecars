@@ -1,47 +1,48 @@
 <div class="banner">
   <div class="container py-5 position-relative">
     <div class="col-8">
-      <h1><strong>Streamline Vehicle Reservations: <br> We Make It Effortless</strong></h1>
-      <div class="slogan">
-        Unlock Seamless Mobility: Plan and manage your company vehicle reservations effortlessly with ShareTheCars. Streamline your fleet management and empower your team to move efficiently.
+      <h1><strong>La Gestion <span class="text-futuriste">Futuriste</span> de Véhicules<br>
+          d'Entreprise</strong></h1>
+      <div class="slogan p-2">
+        <strong><span class="highlight">Facilitez</span></strong> la mobilité au sein de votre entreprise.<br>
+        Planifiez et gérez les réservations de véhicules <strong><span class="highlight">sans effort</span></strong> avec ShareTheCars.<br>
+        Simplifiez la gestion de votre flotte et donnez à votre équipe les moyens d'être <strong><span class="highlight">plus efficace </span></strong>
       </div>
       <div class="banner-cta">
-        <%= link_to cars_path, class: "btn btn-primary" do  %>
-        Get started
+        <%= link_to cars_path, class: "btn btn-primary" do %>
+          <i class="fas fa-play"></i> <strong>Démarrer avec ShareTheCars</strong>
         <% end %>
       </div>
     </div>
     <img src="https://pngimg.com/d/mercedes_PNG80189.png" class="img-right">
   </div>
 </div>
-<body>
-  <div class="container">
-    <div class="row">
-      <div class="col-12 mt-5 mb-5 text-center">
-        <h2 class="display-5 border-bottom border-secondary border-2 d-inline">Nos services</h2>
-      </div>
-      <div class="col-md-4">
-        <div class="card mx-1 p-4 text-center">
-          <div class="circle"><i class="fas fa-list"></i></div>
-          <h2>Listez les voitures disponible</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in purus tempus, scelerisque risus commodo, commodo nibh. Etiam nec tempor dui. Donec posuere tellus velit. Nunc molestie nibh non eros elementum, in tincidunt magna condimentum. </p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card mx-1 p-4 text-center">
-        <div class="circle"><i class="fas fa-check"></i></div>
-        <h2>Choisissez votre voiture</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in purus tempus, scelerisque risus commodo, commodo nibh. Etiam nec tempor dui. Donec posuere tellus velit. Nunc molestie nibh non eros elementum, in tincidunt magna condimentum.</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card mx-1 p-4 text-center">
-      <div class="circle"><i class="fas fa-car"></i></div>
-        <h2>Roulez avec le sourire</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in purus tempus, scelerisque risus commodo, commodo nibh. Etiam nec tempor dui. Donec posuere tellus velit. Nunc molestie nibh non eros elementum, in tincidunt magna condimentum.</p>
-        </div>
+<div class="container my-5">
+  <div class="row">
+    <div class="col-12 text-center mb-5 section-title">
+      <h2 class="services-heading">Nos Services</h2>
+      <p class="services-subheading">Découvrez comment ShareTheCars peut transformer la gestion de votre boite</p>
+    </div>
+    <div class="col-md-4 d-flex align-items-stretch">
+      <div class="service-card card shadow p-4 text-center">
+        <div class="service-icon mb-3"><i class="fas fa-car-side fa-3x"></i></div>
+        <h3>Listez les Voitures Disponibles</h3>
+        <p>Facilitez la réservation avec un catalogue en ligne actualisé en temps réel.</p>
       </div>
     </div>
-
+    <div class="col-md-4 d-flex align-items-stretch">
+      <div class="service-card card shadow p-4 text-center">
+        <div class="service-icon mb-3"><i class="fas fa-key fa-3x"></i></div>
+        <h3>Choisissez Votre Voiture</h3>
+        <p>Accédez à un large choix de véhicules pour répondre à tous vos besoins de mobilité.</p>
+      </div>
+    </div>
+    <div class="col-md-4 d-flex align-items-stretch">
+      <div class="service-card card shadow p-4 text-center">
+        <div class="service-icon mb-3"><i class="fas fa-smile-beam fa-3x"></i></div>
+        <h3>Roulez avec le Sourire</h3>
+        <p>Profitez d'une expérience de conduite supérieure, soutenue par un service client exceptionnel.</p>
+      </div>
+    </div>
   </div>
-</body>
+</div>

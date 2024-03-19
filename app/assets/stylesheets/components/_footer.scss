@@ -22,7 +22,7 @@ footer h4::before{
   position: absolute;
   left:0;
   bottom: -10px;
-  background-color: $secondary;
+  background-color: $primary;
   height: 2px;
   box-sizing: border-box;
   width: 50px;
@@ -67,5 +67,5 @@ footer .social-links a{
 
 footer .social-links a:hover{
   color: #fff;
-  background-color: $secondary;
+  background-color: $primary;
 }

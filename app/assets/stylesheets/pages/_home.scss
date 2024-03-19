@@ -1,1 +1,47 @@
 // Specific CSS for your home-page
+
+.service-card {
+  transition: transform 0.3s ease;
+  border: 0;
+  border-radius: 0.5rem;
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.service-icon {
+  color: #d37427;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+
+.section-title {
+  .services-heading {
+    font-size: 2.5rem;
+    color: #d37427;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+
+  .services-subheading {
+    font-size: 1.25rem;
+    color: #495057;
+    max-width: 60%;
+    margin: auto;
+  }
+}
+
+.banner {
+  background-color: #d37427;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+}
+
+.highlight {
+  color: #d37427;
+}
