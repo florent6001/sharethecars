@@ -8,7 +8,7 @@ Car.destroy_all
 Company.destroy_all
 User.destroy_all
 
-5.times do
+2.times do
   Company.create!(
     name: Faker::Company.name,
     address: Faker::Address.street_address
