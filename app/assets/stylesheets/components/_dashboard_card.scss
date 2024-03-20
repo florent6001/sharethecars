@@ -1,0 +1,19 @@
+.dashboard-card {
+  @extend .card, .border-5, .border-end-0, .border-top-0, .border-bottom-0, .shadow, .h-100, .py-2;
+}
+
+.dashboard-card-body {
+  @extend .card-body;
+}
+
+.dashboard-card-title {
+  @extend .fw-bold, .text-uppercase, .mb-1;
+}
+
+.dashboard-card-icon {
+  @extend .fa-2x, .text-muted;
+}
+
+.dashboard-card-stats {
+  @extend .h5, .mb-0, .fw-bold;
+}

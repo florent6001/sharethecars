@@ -11,20 +11,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", root_path, class: "nav-link" %>
-          </li>
           <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-          <a href="#" id="navbarDropdown" class="nav-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= "#{current_user.first_name} #{current_user.last_name}" %>
-          </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <p class="dropdown-item active"><%= current_user.company.name %></p>
-              <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
+            <%= link_to dashboard_path, class: "nav-link" do %>
+              <span class="btn btn-primary">Accéder à mon tableau de bord</span>
+            <% end %>
           </li>
         <% else %>
           <li class="nav-item">

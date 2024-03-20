@@ -20,7 +20,9 @@
         <%= render "shared/sidebar" %>
         <div class="w-100">
           <%= render "shared/navbar_for_sidebar" %>
-          <%= yield %>
+          <div class="mx-5">
+            <%= yield %>
+          </div>
         </div>
       </div>
     <% end %>

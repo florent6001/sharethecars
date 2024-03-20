@@ -76,7 +76,7 @@ cars.each do |car|
       end_date: end_date,
       car: car,
       kilometers: rand(20..300),
-      done: true,
+      done: [true, false].sample,
       user: users.sample
     )
   end
