@@ -1,5 +1,66 @@
 <div class="container-fluid">
   <div class="mt-3">
     <h1>Tableau de bord</h1>
+    <div class="row mt-3">
+      <%= render 'shared/dashboard_card', color: 'primary', text: 'Taux d\'occupation moyen des véhicules', value: '92%' %>
+      <%= render 'shared/dashboard_card', color: 'secondary', text: 'Kilomètrages moyen par réservations', value: '167 km' %>
+      <%= render 'shared/dashboard_card', color: 'success', text: 'Durée moyenne des réservations', value: '14 heures' %>
+      <%= render 'shared/dashboard_card', color: 'info', text: 'Nombres de voitures disponible demain', value: '4' %>
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-12">
+        <h2>Réservations en cours</h2>
+        <div class="mt-3 table-responsive mx-n1 px-1 scrollbar">
+          <table class="table fs-9 mb-0 border border-white">
+            <thead>
+              <tr>
+                <th class="bg-white">Véhicule</th>
+                <th class="bg-white">Date d'emprunt</th>
+                <th class="bg-white">Date de restitution</th>
+                <th class="bg-white">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="list" id="table-latest-review-body">
+              <% current_user.pending_reservations.each do |reservation| %>
+                <tr class="hover-actions-trigger btn-reveal-trigger position-static">
+                  <td><%= reservation.car.model %> <small><%= reservation.car.color %></small></td>
+                  <td><%= reservation.start_date %></td>
+                  <td><%= reservation.end_date %></td>
+                  <td class="d-flex gap-3">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#voiture-<%= reservation.car.id %>">
+                      Clôturer
+                    </button>
+                    <a href="#" class="btn btn-link">Annuler</a>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
+<% current_user.pending_reservations.each do |reservation| %>
+<div class="modal fade" id="voiture-<%= reservation.car.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Clôturer ma réservation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <%= simple_form_for [reservation, @feedback] do |f| %>
+        <div class="modal-body">
+          <p>Vous êtes sur le point de clôturer votre réservation pour le véhicule "<%= reservation.car.model %>".<br><br>Vous pouvez laisser un commentaire ci-dessous pour le suivi du véhicule. Merci de signaler toutes anomalies ou remarques.</p>
+            <%= f.input :comment, label: false %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-link" data-bs-dismiss="modal">Annuler</button>
+            <%= f.submit "Clôturer ma réservation", class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% end %>

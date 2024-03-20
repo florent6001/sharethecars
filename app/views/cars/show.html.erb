@@ -17,8 +17,12 @@
             <i class="fa-solid fa-arrow-left"></i> Liste des voitures
           <% end %>
         </div>
-        <div class="col-md-5">
+        <div class="mt-4">
+          <h2>Derniers commentaires</h2>
+          <%= render "feedbacks/index", feedbacks: @car.feedbacks %>
         </div>
+      </div>
+      <div class="col-md-5">
       </div>
     </div>
   </div>

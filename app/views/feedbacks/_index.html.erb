@@ -1,0 +1,9 @@
+<% feedbacks.each do |feedback| %>
+  <div class="notification box-shadow border">
+    <div class="notification-content">
+      <p><small><%= feedback.reservation.user.first_name %> <%= feedback.reservation.user.last_name %></small></p>
+      <p><%= feedback.comment %></p>
+      <p><small><%= time_ago_in_words(feedback.created_at) %> ago</small></p>
+    </div>
+  </div>
+<% end %>
