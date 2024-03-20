@@ -22,8 +22,9 @@
 }
 
 .img-right {
-  position:absolute;
-  right:0;
-  top:100px;
-  width:43%;
+  position: absolute;
+  z-index: 1;
+  right: 213px;
+  top: 161px;
+  width: 35%;
 }

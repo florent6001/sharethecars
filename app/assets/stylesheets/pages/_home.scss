@@ -22,6 +22,7 @@
     color: #d37427;
     margin-bottom: 0.5rem;
     font-weight: bold;
+    position: relative;
   }
 
   .services-subheading {
@@ -44,4 +45,29 @@
 
 .highlight {
   color: #d37427;
+}
+
+.img-custom {
+
+  position: absolute;
+  right: 41.95%;
+  top: 104.99%;
+  width: 16%;
+}
+
+.logo-custom {
+
+  position: absolute;
+  z-index: 2;
+  right: -1%;
+  top: 30%;
+  width: 26%;
+}
+
+.logo-share {
+  position: absolute;
+  z-index: 2;
+  right: 42%;
+  top: 101%;
+  width: 15%;
 }
