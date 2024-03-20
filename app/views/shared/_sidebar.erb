@@ -1,4 +1,4 @@
-<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark vh-100" style="width: 280px;">
+<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark vh-100 sticky-top" style="width: 280px;">
   <div class="text-center my-3">
     <%= link_to root_path, class: 'text-white text-decoration-none' do %>
       <h3 class="mb-0">ShareTheCar</h3>
@@ -23,6 +23,12 @@
       <a href="#" class="nav-link text-white">
         <i class="fas fa-list pe-2"></i> Réservations
       </a>
+    </li>
+    <hr>
+    <li>
+      <%= link_to user_path(current_user), class: "nav-link text-white #{controller_name == 'users' && action_name == 'show' ? 'active' : ''}" do %>
+        <i class="fas fa-user pe-2"></i> Mon Profil
+      <% end %>
     </li>
   </ul>
 </div>

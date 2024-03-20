@@ -1,0 +1,12 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Profil de <%= @user.first_name %> <%= @user.last_name %></h2>
+      <%= cl_image_tag(@user.avatar.key, class: "img-fluid") if @user.avatar.attached? %>
+      <p>Email : <%= @user.email %></p>
+      <p>Numéro de téléphone : <%= @user.phone_number %></p>
+      <p>Nom de la compagnie : <%= @user.company.name if @user.company %></p>
+      <p>Membre depuis : <%= @user.created_at.strftime("%d/%m/%Y") %></p>
+    </div>
+  </div>
+</div>

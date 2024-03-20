@@ -4,4 +4,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :company
+  has_many :reservations
+  has_one_attached :avatar
+
+  def pending_reservations
+    reservations.where(done: false).order('start_date DESC')
+  end
 end

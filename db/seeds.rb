@@ -52,7 +52,8 @@ end
 cars = Car.all
 
 5.times do |i|
-  User.create!(
+  image = URI.open("https://i.pravatar.cc/300")
+  user = User.new(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     phone_number: Faker::PhoneNumber.phone_number,
@@ -61,6 +62,8 @@ cars = Car.all
     email: "user#{i}@test.com",
     password: 'password'
   )
+  user.avatar.attach(io: image, filename: "#{user.email}.jpg")
+  user.save
 end
 users = User.all
 
@@ -76,7 +79,7 @@ cars.each do |car|
       end_date: end_date,
       car: car,
       kilometers: rand(20..300),
-      done: true,
+      done: [true, false].sample,
       user: users.sample
     )
   end
