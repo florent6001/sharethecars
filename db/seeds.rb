@@ -67,7 +67,6 @@ cars = Car.all
 end
 users = User.all
 
-
 cars.each do |car|
   latest_end_date = Date.today
   5.times do
