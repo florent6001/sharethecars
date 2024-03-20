@@ -11,11 +11,20 @@
   </head>
 
   <body>
-    <%= render "shared/navbar" %>
+    <% if controller_name == 'pages' && action_name != 'dashboard' || controller_name.start_with?('sessions') %>
+      <%= render "shared/navbar" %>
+      <%= yield %>
+      <%= render "shared/footer" %>
+    <% else %>
+      <div class="d-flex">
+        <%= render "shared/sidebar" %>
+        <div class="w-100">
+          <%= render "shared/navbar_for_sidebar" %>
+          <%= yield %>
+        </div>
+      </div>
+    <% end %>
+
     <%= render "shared/flashes" %>
-    <%= yield %>
-    <%= render "shared/footer" %>
-
-
   </body>
 </html>
