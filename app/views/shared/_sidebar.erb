@@ -24,5 +24,11 @@
         <i class="fas fa-list pe-2"></i> Réservations
       </a>
     </li>
+    <hr>
+    <li>
+      <%= link_to user_path(current_user), class: "nav-link text-white #{controller_name == 'users' && action_name == 'show' ? 'active' : ''}" do %>
+        <i class="fas fa-user pe-2"></i> Mon Profil
+      <% end %>
+    </li>
   </ul>
 </div>

@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :reservations, only: %w[] do
     resources :feedbacks, only: %w[create]
   end
+  resources :users, only: [:show]
 end
