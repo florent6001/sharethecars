@@ -83,3 +83,5 @@ gem "pundit", "~> 2.3"
 gem "faker", "~> 3.2"
 
 gem "geocoder", "~> 1.8"
+
+gem "flatpickr", "~> 4.6"
