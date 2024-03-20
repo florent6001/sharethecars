@@ -5,13 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
-    <% if controller_name == 'pages' && action_name != 'dashboard' || controller_name.start_with?('sessions') %>
+    <% if controller_name == 'pages' && action_name != 'dashboard' || controller_name.start_with?('sessions') || controller_name.start_with?('registrations') %>
       <%= render "shared/navbar" %>
       <%= yield %>
       <%= render "shared/footer" %>
@@ -26,7 +24,6 @@
         </div>
       </div>
     <% end %>
-
     <%= render "shared/flashes" %>
   </body>
 </html>
