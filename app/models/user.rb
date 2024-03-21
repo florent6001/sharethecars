@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
   belongs_to :company
   has_many :reservations
+  has_many :feedbacks, through: :reservations
   has_one_attached :avatar
 
   def pending_reservations
