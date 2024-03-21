@@ -30,7 +30,7 @@
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#voiture-<%= reservation.car.id %>">
                       Clôturer
                     </button>
-                    <a href="#" class="btn btn-link">Annuler</a>
+                    <%= link_to 'Annuler', car_reservation_path(car_id: reservation.car_id, id: reservation.id), data: { turbo_method: :delete, turbo_confirm: 'Êtes-vous sûr de vouloir annuler cette réservation ?' }, class: 'btn btn-link' %>
                   </td>
                 </tr>
               <% end %>
@@ -41,26 +41,27 @@
     </div>
   </div>
 </div>
-
 <% current_user.pending_reservations.each do |reservation| %>
-<div class="modal fade" id="voiture-<%= reservation.car.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Clôturer ma réservation</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <%= simple_form_for [reservation, @feedback] do |f| %>
-        <div class="modal-body">
-          <p>Vous êtes sur le point de clôturer votre réservation pour le véhicule "<%= reservation.car.model %>".<br><br>Vous pouvez laisser un commentaire ci-dessous pour le suivi du véhicule. Merci de signaler toutes anomalies ou remarques.</p>
+  <div class="modal fade" id="voiture-<%= reservation.car.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Clôturer ma réservation</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <%= simple_form_for [reservation, @feedback] do |f| %>
+          <div class="modal-body">
+            <p>Vous êtes sur le point de clôturer votre réservation pour le véhicule "<%= reservation.car.model %>".<br>
+              <br>
+              Vous pouvez laisser un commentaire ci-dessous pour le suivi du véhicule. Merci de signaler toutes anomalies ou remarques.</p>
             <%= f.input :comment, label: false %>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-link" data-bs-dismiss="modal">Annuler</button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-link" data-bs-dismiss="modal">Annuler</button>
             <%= f.submit "Clôturer ma réservation", class: 'btn btn-primary' %>
-        </div>
-      <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
 <% end %>
