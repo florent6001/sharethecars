@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row mt-3">
-    <div class="col-md-7">
+    <div class="col-md-9">
       <div class="card bg-white rounded rounded-4">
         <%= cl_image_tag(@car.photo.key, class: "w-100") %>
       </div>
@@ -18,7 +18,7 @@
         <%= render "shared/feedbacks", feedbacks: @car.feedbacks %>
       </div>
     </div>
-    <div class="col-md-5">
+    <div class="col-md-3">
       <%= render "form" %>
     </div>
   </div>
