@@ -1,0 +1,25 @@
+<%= simple_form_for '', url: cars_path, method: :get do |f| %>
+  <div class="card bg-white rounded rounded-4">
+    <div class="card-body p-3" >
+      <div class="row">
+        <div class="col-md-12">
+          <%= f.input :start_date,
+                as: :string,
+                label: false,
+                input_html: { data: { controller: "datepicker" }, id: "start_date", class: 'd-none text-center mx-auto' }
+          %>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :end_date,
+                as: :hidden,
+                input_html: { data: { controller: "datepicker", order_price_target: "enddate" }, id: "end_date"} %>
+        </div>
+      </div>
+      <div class="col-md-12 mt-2">
+        <div class="text-center mt-3">
+          <%= f.submit "Voir les voitures disponibles",  :class => "btn btn-primary px-4 rounded-3" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
