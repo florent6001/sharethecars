@@ -23,4 +23,8 @@ export default class extends Controller {
       "plugins": [new rangePlugin({ input: "#end_date"})]
     })
   }
+
+  disconnect() {
+    document.querySelector('.flatpickr-calendar').remove();
+  }
 }

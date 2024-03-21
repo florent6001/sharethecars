@@ -6,13 +6,13 @@
           <%= f.input :start_date,
                 as: :string,
                 label: false,
-                input_html: { data: { controller: "datepicker" }, id: "start_date", class: 'd-none text-center mx-auto' }
+                input_html: { data: { controller: "datepicker" }, value: @start_date, id: "start_date", class: 'd-none text-center mx-auto' }
           %>
         </div>
         <div class="col-md-6">
           <%= f.input :end_date,
                 as: :hidden,
-                input_html: { data: { controller: "datepicker", order_price_target: "enddate" }, id: "end_date"} %>
+                input_html: { data: { controller: "datepicker" }, value: @end_date, id: "end_date"} %>
         </div>
       </div>
       <div class="col-md-12 mt-2">
