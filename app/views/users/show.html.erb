@@ -1,12 +1,16 @@
 <div class="container-fluid mt-5">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="card shadow">
+        <div class="card-header" style="background-color: #ffa500;">
+          <h5 class="card-title m-0 text-white">Mes informations</h5>
+        </div>
         <% if @user.avatar.attached? %>
           <%= cl_image_tag(@user.avatar.key, class: 'card-img-top', crop: :fill, gravity: :face, alt: "Avatar of " + @user.first_name) %>
         <% end %>
         <div class="card-body">
           <h5 class="card-title text-center"><%= @user.first_name %> <%= @user.last_name %></h5>
+          <hr>
           <p class="card-text"><i class="fas fa-envelope me-2"></i><%= @user.email %></p>
           <p class="card-text"><i class="fas fa-phone me-2"></i><%= @user.phone_number %></p>
           <p class="card-text"><i class="fas fa-building me-2"></i><%= @user.company.name if @user.company %></p>
