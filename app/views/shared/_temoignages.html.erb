@@ -1,0 +1,71 @@
+<div class="container my-5">
+  <div class="col-12 text-center mb-5 section-title p-2">
+    <h2 class="services-heading" style="color: #d37427;">Témoignages</h2>
+    <p class="services-subheading">
+      Découvrez les expériences partagées par nos clients et comprenez comment
+      <strong style="color: #d37427;">ShareTheCars</strong> révolutionne la gestion des véhicules d'entreprise.
+    </p>
+  </div>
+  <div id="testimonialsCarousel" class="carousel slide testimonial-carousel" data-bs-ride="carousel" data-bs-interval="3000">
+    <div class="card shadow p-3 text-center">
+      <div class="carousel-inner ">
+        <div class="carousel-item active ">
+          <div class="testimonial text-center">
+            <%= image_tag("profil1.png", class: "rounded-circle mb-3", width: 150, height: 150) %>
+            <div class="testimonial-text">
+              <i class="fas fa-quote-left"></i>
+              Un outil de gestion de flotte très pratique. Les employés sont ravis de pouvoir réserver leur voiture en quelques clics.
+              <i class="fas fa-quote-right"></i>
+            </div>
+            <br>
+            <p class="testimonial-author" style="color: #d37427"><strong>CEO - Marie Jeanne</strong></p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="testimonial text-center">
+            <%= image_tag("profil2.png", class: "rounded-circle mb-3", width: 150, height: 150) %>
+            <div class="testimonial-text">
+              <i class="fas fa-quote-left"></i>
+              Un service client réactif et des fonctionnalités pratiques. ShareTheCars a changé notre façon de gérer les déplacements professionnels.
+              <i class="fas fa-quote-right"></i>
+            </div>
+            <br>
+            <p class="testimonial-author" style="color: #d37427;"><strong>Employé - Marc Legend</strong></p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="testimonial text-center">
+            <%= image_tag("profil3.png", class: "rounded-circle mb-3", width: 150, height: 150) %>
+            <div class="testimonial-text">
+              <i class="fas fa-quote-left"></i>
+              Service fiable et interface utilisateur intuitive. Très satisfait de ShareTheCars.
+              <i class="fas fa-quote-right"></i>
+            </div>
+            <br>
+            <p class="testimonial-author" style="color: #d37427;"><strong>Employé - John Lodbrok</strong></p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="testimonial text-center">
+            <%= image_tag("profil4.png", class: "rounded-circle mb-3", width: 150, height: 150) %>
+            <div class="testimonial-text">
+              <i class="fas fa-quote-left"></i>
+              Un vrai paradis sur terre ! Depuis que je n'entends plus mes employés courir partout pour savoir qui a la voiture aujourd'hui.
+              <i class="fas fa-quote-right"></i>
+            </div>
+            <br>
+            <p class="testimonial-author" style="color: #d37427;"><strong>CEO - Olivier gautier</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" style="background-color: #ffa500; width: 35px; height: 35px; border-radius: 50%;"></span>
+      <span class="visually-hidden">Précédent</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" style="background-color: #ffa500; width: 35px; height: 35px; border-radius: 50%;"></span>
+      <span class="visually-hidden">Suivant</span>
+    </button>
+  </div>
+</div>
