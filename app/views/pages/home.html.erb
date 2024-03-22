@@ -1,23 +1,25 @@
 <div class="banner" data-controller="image">
   <div class="container py-5 position-relative">
     <div class="col-8">
-      <h1><strong>La Gestion <span class="highlight">Futuriste</span> de Véhicules<br>
-          d'Entreprise</strong></h1>
-      <div class="slogan p-2">
-        <strong><span class="highlight">Facilitez</span></strong> la mobilité au sein de votre entreprise.<br>
-        Planifiez et gérez les réservations de véhicules <strong><span class="highlight">sans effort</span></strong> avec ShareTheCars.<br>
-        Simplifiez la gestion de votre flotte et donnez à votre équipe les moyens d'être <strong><span class="highlight">plus efficace </span></strong>
+      <h1 data-aos="zoom-in" data-aos-delay="100">
+        <strong>La Gestion <span class="highlight" data-aos="flip-up" data-aos-delay="500">Futuriste</span> de Véhicules<br>
+          d'Entreprise</strong>
+      </h1>
+      <div class="slogan p-2" data-aos="fade-up" data-aos-delay="800">
+        <span class="highlight"><strong>Facilitez  </strong></span> la mobilité au sein de votre entreprise.<br>
+        Planifiez et gérez les réservations de véhicules <span class="highlight"><strong> sans effort </strong></span> avec ShareTheCars. <br>
+        Simplifiez la gestion de votre flotte et donnez à votre équipe les moyens d'être <span class="highlight"><strong> plus efficace. </strong></span>
       </div>
-      <div class="banner-cta" data-controller="image" data-action="mouseover->image#hover mouseout->image#unhover">
+      <div class="banner-cta mt-4" data-aos="zoom-in" data-aos-delay="1100">
         <%= link_to dashboard_path, class: "btn btn-primary hover-trigger", id: "hover-trigger" do %>
           <i class="fas fa-play"></i> <strong>Démarrer avec ShareTheCars</strong>
         <% end %>
       </div>
     </div>
-    <%= image_tag("voiture1.png", data: {image_target: "carImage" }, class:"img-right", id: "carImage") %>
-    <%= image_tag("phare.png", data: {image_target: "carImage" }, class:"img-right d-none", id: "phare") %>
-    <%= image_tag("humain.png", class: "logo-custom") %>
-    <%= image_tag("share-the-cars-logo.png", class: "logo-share") %>
+    <%= image_tag("voiture1.png", data: { image_target: "carImage", 'aos' => "fade-left", 'aos-delay' => 1300 }, class: "img-right", id: "carImage") %>
+    <%= image_tag("phare.png", data: { image_target: "carImage", 'aos' => "fade-left", 'aos-delay' => 1500 }, class: "img-right d-none", id: "phare") %>
+    <%= image_tag("humain.png", class: "logo-custom", data: { 'aos' => "fade-up-right", 'aos-delay' => 1700 }) %>
+    <%= image_tag("share-the-cars-logo.png", class: "logo-share", data: { 'aos' => "fade-down-left", 'aos-delay' => 1900 }) %>
   </div>
 </div>
 <%= render "shared/service" %>
