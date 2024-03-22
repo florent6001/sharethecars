@@ -14,6 +14,8 @@ class CarsController < ApplicationController
 
   def show
     @car = Car.find(params[:id])
+    @start_date = params[:start_date]
+    @end_date = params[:end_date]
     @reservation = Reservation.new
   end
 end

@@ -1,5 +1,5 @@
 .dashboard-card {
-  @extend .card, .border-5, .border-end-0, .border-top-0, .border-bottom-0, .shadow, .h-100, .py-2;
+  @extend .card, .border-5, .border-end-0, .border-top-0, .border-bottom-0, .shadow, .h-100, .py-2, .bg-light;
 }
 
 .dashboard-card-body {

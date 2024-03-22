@@ -1,23 +1,20 @@
 <%= simple_form_for [@car, @reservation] do |f| %>
   <div class="card bg-white rounded rounded-4">
-    <div class="card-body p-3" >
+    <div class="card-body p-3" data-controller="datepicker" data-datepicker-dates-value="<%= @car.reservations.to_json %>">
       <div class="row">
-        <div class="col-md-12">
-          <%= f.input :start_date,
-                as: :string,
-                label: false,
-                input_html: { data: { controller: "datepicker", action:"change->order-price#test", datepicker_dates_value: @car.reservations.to_json }, id: "start_date", class: 'd-none text-center mx-auto' }
-          %>
-        </div>
-        <div class="col-md-6">
-          <%= f.input :end_date,
-                as: :hidden,
-                input_html: { data: { controller: "datepicker", order_price_target: "enddate" }, id: "end_date"} %>
-        </div>
+        <%= f.input :start_date,
+              as: :string,
+              label: false,
+              input_html: { value: @start_date, data: { datepicker_target: "container" }, id: "start_date", class: 'd-none text-center mx-auto' }
+        %>
+        <%= f.input :end_date,
+              as: :hidden,
+              input_html: {value: @end_date, id: "end_date"} %>
       </div>
       <div class="col-md-12 mt-2">
         <div class="text-center mt-3">
-          <%= f.button :submit, "Book the car",  class: "btn btn-primary px-4 rounded-3" %>
+          <button type="button" class="btn btn-link d-block mx-auto" data-action="datepicker#reset">Réinitialiser les dates</button>
+          <%= f.button :submit, "Réserver la voiture",  class: "btn btn-primary px-4 rounded-3" %>
         </div>
       </div>
     </div>

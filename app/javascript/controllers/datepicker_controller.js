@@ -3,6 +3,7 @@ import flatpickr from 'flatpickr';
 import rangePlugin from 'flatpickr/dist/plugins/rangePlugin';
 
 export default class extends Controller {
+  static targets = ["container"]
   static values = {
     dates: Array
   }
@@ -12,19 +13,28 @@ export default class extends Controller {
       from: date.start_date,
       to: date.end_date
     }));
-
     console.log(this.datesValue)
-    flatpickr(this.element, {
+    console.log(disabledDates)
+
+    const pickers = document.querySelectorAll('.flatpickr-calendar')
+    pickers.forEach(picker => {
+      picker.remove()
+    })
+
+    flatpickr(this.containerTarget, {
       minDate: 'today',
       mode: "range",
       inline: true,
       disable: disabledDates,
-      allowInput: false,
-      "plugins": [new rangePlugin({ input: "#end_date"})]
+      "plugins": [new rangePlugin({ input: "#end_date" })]
     })
   }
 
-  disconnect() {
-    document.querySelector('.flatpickr-calendar').remove();
+  // disconnect() {
+  //   alert('disconnected')
+  // }
+
+  reset() {
+    this.containerTarget._flatpickr.clear()
   }
 }
