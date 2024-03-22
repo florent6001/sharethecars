@@ -3,6 +3,12 @@
     <%= link_to root_path, class: "navbar-brand" do %>
       ShareTheCars
     <% end %>
+    <% if user_signed_in? %>
+      <div class="welcome-message d-flex align-items-center mt-2">
+        <h4 class="welcome-perso p-2"><strong>Welcome,</strong></h4>
+        <h4> <strong> <%= current_user.first_name %> <%= current_user.last_name %></strong>!</h4>
+      </div>
+    <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
