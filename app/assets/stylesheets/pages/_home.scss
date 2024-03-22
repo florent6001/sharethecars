@@ -66,8 +66,16 @@
 
 .logo-share {
   position: absolute;
-  z-index: 2;
-  right: 44%;
-  top: 106%;
-  width: 11%;
+    z-index: 2;
+    right: 44%;
+    top: 108%;
+    width: 12%;
+}
+
+
+#hover-trigger {
+  color: black;
+  &:hover {
+    color: white
+  }
 }

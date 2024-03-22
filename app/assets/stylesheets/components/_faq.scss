@@ -1,0 +1,27 @@
+#faqAccordion .accordion-button {
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: bold;
+}
+
+#faqAccordion .accordion-body {
+  background-color: #fff;
+}
+
+#faqAccordion .accordion-item {
+  border: none;
+}
+
+#faqAccordion .accordion-button:not(.collapsed) {
+  color: #d37427;
+  background-color: #e9ecef;
+}
+
+.accordion-button {
+  padding: 1rem 1.25rem;
+  border: none;
+  border-bottom: 1px solid #f2f2f2;
+  &:hover {
+    transform: translateY(-2px);
+  }
+}

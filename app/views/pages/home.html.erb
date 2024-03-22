@@ -1,4 +1,4 @@
-<div class="banner">
+<div class="banner" data-controller="image">
   <div class="container py-5 position-relative">
     <div class="col-8">
       <h1><strong>La Gestion <span class="highlight">Futuriste</span> de Véhicules<br>
@@ -8,43 +8,18 @@
         Planifiez et gérez les réservations de véhicules <strong><span class="highlight">sans effort</span></strong> avec ShareTheCars.<br>
         Simplifiez la gestion de votre flotte et donnez à votre équipe les moyens d'être <strong><span class="highlight">plus efficace </span></strong>
       </div>
-      <div class="banner-cta">
-        <%= link_to cars_path, class: "btn btn-primary" do %>
+      <div class="banner-cta" data-controller="image" data-action="mouseover->image#hover mouseout->image#unhover">
+        <%= link_to cars_path, class: "btn btn-primary hover-trigger", id: "hover-trigger" do %>
           <i class="fas fa-play"></i> <strong>Démarrer avec ShareTheCars</strong>
         <% end %>
       </div>
     </div>
-    <img src="https://pngimg.com/d/mercedes_PNG80189.png" class="img-right">
-    <img src="https://i.ibb.co/y0mhDwF/humain-transformed.webp" class="logo-custom">
-    <img src="https://i.ibb.co/HYXg64d/22222222logosharethecar-Photoroom-png-Photoroom-removebg-preview.png" class="logo-share">
+    <%= image_tag("voiture1.png", data: {image_target: "carImage" }, class:"img-right", id: "carImage") %>
+    <%= image_tag("phare.png", data: {image_target: "carImage" }, class:"img-right d-none", id: "phare") %>
+    <%= image_tag("humain.png", class: "logo-custom") %>
+    <%= image_tag("share-the-cars-logo.png", class: "logo-share") %>
   </div>
 </div>
-<div class="container my-5">
-  <div class="row">
-    <div class="col-12 text-center mb-3 section-title p-5">
-      <h2 class="services-heading">Nos Services</h2>
-      <p class="services-subheading">Découvrez comment ShareTheCars peut transformer la gestion de votre boite</p>
-    </div>
-    <div class="col-md-4 d-flex align-items-stretch">
-      <div class="service-card card shadow p-4 text-center">
-        <div class="service-icon mb-3"><i class="fas fa-car-side fa-3x"></i></div>
-        <h3>Listez les Voitures Disponibles</h3>
-        <p>Facilitez la réservation avec un catalogue en ligne actualisé en temps réel.</p>
-      </div>
-    </div>
-    <div class="col-md-4 d-flex align-items-stretch">
-      <div class="service-card card shadow p-4 text-center">
-        <div class="service-icon mb-3"><i class="fas fa-key fa-3x"></i></div>
-        <h3>Choisissez Votre Voiture</h3>
-        <p>Accédez à un large choix de véhicules pour répondre à tous vos besoins de mobilité.</p>
-      </div>
-    </div>
-    <div class="col-md-4 d-flex align-items-stretch">
-      <div class="service-card card shadow p-4 text-center">
-        <div class="service-icon mb-3"><i class="fas fa-smile-beam fa-3x"></i></div>
-        <h3>Roulez avec le Sourire</h3>
-        <p>Profitez d'une expérience de conduite supérieure, soutenue par un service client exceptionnel.</p>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render "shared/service" %>
+<%= render "shared/temoignages" %>
+<%= render "shared/faq" %>
