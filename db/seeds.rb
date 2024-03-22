@@ -49,10 +49,13 @@ cars_url.each do |url|
 
   car.save
 end
+require 'uri'
+
+companies = Company.all
 cars = Car.all
 
 5.times do |i|
-  image = URI.open("https://i.pravatar.cc/300")
+  image = URI.open("https://i.pravatar.cc/300?=#{i}")
   user = User.new(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
