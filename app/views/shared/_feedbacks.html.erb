@@ -1,7 +1,7 @@
 <% feedbacks.each do |feedback| %>
   <div class="notification box-shadow border">
-    <% if current_user.avatar.attached? %>
-      <%= cl_image_tag(current_user.avatar.key, crop: :fill, gravity: :face, class: "avatar-large") %>
+    <% if feedback.reservation.user.avatar.attached? %>
+      <%= cl_image_tag(feedback.reservation.user.avatar.key, crop: :fill, gravity: :face, class: "avatar-large") %>
     <% else %>
       <%= image_tag 'avatar.png', class:"avatar-large", width: 300 %>
     <% end %>
