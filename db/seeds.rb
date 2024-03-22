@@ -21,8 +21,15 @@ cars_url = [
   "https://fr.wikipedia.org/wiki/Peugeot_307",
   "https://fr.wikipedia.org/wiki/Renault_M%C3%A9gane",
   "https://fr.wikipedia.org/wiki/Renault_Zoe",
+  "https://fr.wikipedia.org/wiki/Renault_Zoe",
   "https://fr.wikipedia.org/wiki/Renault_Clio_IV",
+  "https://fr.wikipedia.org/wiki/Renault_Clio_IV",
+  "https://fr.wikipedia.org/wiki/Renault_Clio_III",
+  "https://fr.wikipedia.org/wiki/Renault_Clio_V",
   "https://fr.wikipedia.org/wiki/Renault_Twingo_III",
+  "https://fr.wikipedia.org/wiki/Renault_Twingo_II",
+  "https://fr.wikipedia.org/wiki/Peugeot_208_II",
+  "https://fr.wikipedia.org/wiki/Peugeot_308_III",
   "https://fr.wikipedia.org/wiki/Peugeot_208_II"
 ]
 
@@ -54,7 +61,7 @@ require 'uri'
 companies = Company.all
 cars = Car.all
 
-5.times do |i|
+25.times do |i|
   image = URI.open("https://i.pravatar.cc/300?=#{i}")
   user = User.new(
     first_name: Faker::Name.first_name,
