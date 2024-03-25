@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_22_015408) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_25_091936) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,9 +47,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_22_015408) do
     t.string "color"
     t.string "plate_number"
     t.bigint "company_id", null: false
-    t.float "base_kilomoters"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "kilometers"
     t.index ["company_id"], name: "index_cars_on_company_id"
   end
 
