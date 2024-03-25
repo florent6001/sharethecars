@@ -13,3 +13,4 @@ pin "flatpickr/dist/plugins/rangePlugin", to: "https://ga.jspm.io/npm:flatpickr@
 pin "flatpickr", to: "https://ga.jspm.io/npm:flatpickr@4.6.13/dist/esm/index.js"
 pin "chart.js/auto", to: "https://ga.jspm.io/npm:chart.js@4.4.2/auto/auto.js"
 pin "@kurkle/color", to: "https://ga.jspm.io/npm:@kurkle/color@0.3.2/dist/color.esm.js"
+pin "aos", to: "https://ga.jspm.io/npm:aos@2.3.4/dist/aos.js"

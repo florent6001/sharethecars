@@ -13,4 +13,9 @@ class PagesController < ApplicationController
     @average_kilometers = current_user.reservations.average(:kilometers).to_i
     @feedback = Feedback.new
   end
+
+  def team
+    @company = current_user.company
+    @team = User.where(company: @company)
+  end
 end
