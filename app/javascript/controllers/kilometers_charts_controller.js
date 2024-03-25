@@ -1,48 +1,37 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus";
 import { Chart } from "chart.js/auto";
 
 export default class extends Controller {
   static values = {
     baseKilometers: String,
     reservations: Array
-  }
+  };
 
   connect() {
-    const base_kilometers = parseInt(this.baseKilometersValue);
-    const monthlyData = {};
+    const baseKilometers = parseInt(this.baseKilometersValue);
+    const chartData = [baseKilometers];
+    const labels = ['Base'];
 
     this.reservationsValue.forEach((reservation) => {
-      const monthNumber = parseInt(reservation.start_date.split('-')[1]);
-      const monthNames = [
-        "janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"
-      ];
-      const monthName = monthNames[monthNumber - 1];
-      if (!monthlyData[monthName]) {
-        monthlyData[monthName] = [];
-      }
-      monthlyData[monthName].push(parseInt(reservation.kilometers));
+      chartData.push(parseInt(reservation.kilometers));
+      console.log(reservation.created_at)
+      labels.push(new Date(reservation.created_at).toLocaleString('fr-FR', { day: '2-digit', month: '2-digit' }).replace(/\//g, '/'));
     });
 
-    const labels = ['Base', ...Object.keys(monthlyData)];
-    const chartData = [base_kilometers];
-    Object.values(monthlyData).forEach((monthData) => {
-      const averageKilometers = monthData.reduce((acc, val) => acc + val, 0) / monthData.length;
-      chartData.push(averageKilometers);
-    });
 
     const data = {
       labels: labels,
       datasets: [{
-        label: 'Evolution kilométrique',
+        label: "Evolution kilométrique",
         data: chartData,
         fill: true,
-        borderColor: 'rgb(75, 192, 192)',
+        borderColor: "rgb(75, 192, 192)",
         tension: 0.1
       }]
     };
 
     new Chart(this.element, {
-      type: 'line',
+      type: "line",
       data: data,
     });
   }
