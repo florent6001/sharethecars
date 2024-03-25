@@ -1,0 +1,39 @@
+<div class="meet-the-team p-5">
+  <h1 class="text-primary"> <strong>Meet the Team</strong></h1>
+</div>
+
+<div class="team-cards mb-5 container">
+  <% @team.each do |user| %>
+    <div class="row p-3">
+      <div class="card-member pt-4">
+        <div class="member-photo col-12 col-md-4 p-2">
+          <% if user.avatar.attached? %>
+            <%= cl_image_tag(user.avatar.key, crop: :fill, gravity: :face, class: "avatar-large") %>
+          <% else %>
+            <%= image_tag 'avatar.png', class:"avatar-large", width: 300 %>
+          <% end %>
+        </div>
+        <div class="description col-12 col-md-8 p-2">
+        <h2 class="text-primary">
+          <%= user.first_name %>
+         <strong> <%= user.last_name.upcase %> </strong>
+        </h2>
+            <ul class="card-member-ul">
+              <li>
+                <i class="fa-solid fa-phone pe-2"></i><a href="tel:<%= user.phone_number %>"><%= user.phone_number %></a>
+              </li>
+              <li>
+                <i class="fa-solid fa-envelope pe-2"></i><a href="mailto:<%= user.email %>"><%= user.email %></a>
+              </li>
+            </ul>
+            <p> <strong>Bio</strong> </p>
+            <%= user.bio %>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Veritatis laboriosam mollitia...
+            </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

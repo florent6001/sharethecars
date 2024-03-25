@@ -13,8 +13,6 @@ export default class extends Controller {
       from: date.start_date,
       to: date.end_date
     }));
-    console.log(this.datesValue)
-    console.log(disabledDates)
 
     const pickers = document.querySelectorAll('.flatpickr-calendar')
     pickers.forEach(picker => {

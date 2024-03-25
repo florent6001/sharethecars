@@ -30,5 +30,10 @@
         <i class="fas fa-user pe-2"></i> Mon Profil
       <% end %>
     </li>
+    <li>
+      <%= link_to team_path, class: "nav-link text-white #{controller_name == 'pages' ? 'active' : ''}" do %>
+        <i class="fas fa-user pe-2"></i> Meet the Team
+      <% end %>
+    </li>
   </ul>
 </div>
