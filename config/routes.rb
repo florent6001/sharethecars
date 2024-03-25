@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   end
   resources :reservations, only: %w[update]
   resources :users, only: [:show]
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
 end

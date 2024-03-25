@@ -1,0 +1,29 @@
+<div class="container chatroom" data-controller="chatroom-subscription"
+ data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
+ data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
+  <h1>#<%= @chatroom.name %></h1>
+  <div class="messages"
+    data-chatroom-subscription-target="messages"
+    >
+    <% @messages.reverse_each do |message| %>
+      <div class="message-row d-flex align-items-end <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+        <% if not message.sender?(current_user) %>
+          <div class="px-2">
+            <%= cl_image_tag(message.user.avatar.key, alt: message.user.full_name, class: "avatar", width: 50, crop: :fill) if message.user.avatar.attached? %>
+          </div>
+        <% end %>
+        <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+          <%= render "shared/message", message: message %>
+        </div>
+        <% if message.sender?(current_user) %>
+          <div class="px-2">
+            <%= cl_image_tag(message.user.avatar.key, alt: message.user.full_name, class: "avatar", width: 50, crop: :fill) if message.user.avatar.attached? %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <%= simple_form_for [@chatroom, @message], remote: true, html: { } do |f| %>
+    <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}", input_html: { data: { chatroom_subscription_target: "messageInput" } } %>
+  <% end %>
+</div>

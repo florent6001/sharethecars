@@ -54,6 +54,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_140409) do
     t.index ["company_id"], name: "index_cars_on_company_id"
   end
 
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "company_id", null: false
+    t.index ["company_id"], name: "index_chatrooms_on_company_id"
+  end
+
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -69,6 +77,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_140409) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["reservation_id"], name: "index_feedbacks_on_reservation_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "chatroom_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -107,7 +125,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_140409) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cars", "companies"
+  add_foreign_key "chatrooms", "companies"
   add_foreign_key "feedbacks", "reservations"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "reservations", "cars"
   add_foreign_key "reservations", "users"
   add_foreign_key "users", "companies"
