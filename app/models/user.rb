@@ -11,4 +11,8 @@ class User < ApplicationRecord
   def pending_reservations
     reservations.where(done: false).order('start_date DESC')
   end
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

@@ -19,6 +19,11 @@
         <i class="fas fa-car pe-2"></i> Voitures
       <% end %>
     </li>
+    <li>
+      <%= link_to chatroom_path(current_user.company.chatrooms.first), class: "nav-link text-white #{controller_name == 'chatrooms' && action_name == 'show' ? 'active' : ''}" do %>
+        <i class="fas fa-comments pe-2"></i> Discussion
+      <% end %>
+    </li>
     <hr>
     <li>
       <%= link_to user_path(current_user), class: "nav-link text-white #{controller_name == 'users' && action_name == 'show' ? 'active' : ''}" do %>

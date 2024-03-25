@@ -9,10 +9,11 @@ Company.destroy_all
 User.destroy_all
 
 2.times do
-  Company.create!(
+  company = Company.create!(
     name: Faker::Company.name,
     address: Faker::Address.street_address
   )
+  Chatroom.create(name: company.name, company: company)
 end
 companies = Company.all
 

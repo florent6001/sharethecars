@@ -12,3 +12,4 @@ pin "process", to: "https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/pro
 pin "flatpickr/dist/plugins/rangePlugin", to: "https://ga.jspm.io/npm:flatpickr@4.6.13/dist/plugins/rangePlugin.js"
 pin "flatpickr", to: "https://ga.jspm.io/npm:flatpickr@4.6.13/dist/esm/index.js"
 pin "aos", to: "https://ga.jspm.io/npm:aos@2.3.4/dist/aos.js"
+pin "@rails/actioncable", to: "https://cdn.jsdelivr.net/npm/@rails/actioncable@7.1.3-2/app/assets/javascripts/actioncable.esm.js"
