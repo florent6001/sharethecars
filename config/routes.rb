@@ -8,8 +8,6 @@ Rails.application.routes.draw do
   resources :cars, only: %w[index show] do
     resources :reservations, only: %w[create destroy]
   end
-  resources :reservations, only: %w[] do
-    resources :feedbacks, only: %w[create]
-  end
+  resources :reservations, only: %w[update]
   resources :users, only: [:show]
 end

@@ -46,7 +46,7 @@ cars_url.each do |url|
     color: colors.sample,
     plate_number: "#{letters}-#{numbers}-#{letters2}",
     company: companies.sample,
-    base_kilomoters: rand(10_000..50_000)
+    kilometers: rand(10_000..50_000)
   )
 
   image_url = "https:#{doc.search('table span a img').attr('src').value}"
@@ -79,19 +79,23 @@ users = User.all
 
 cars.each do |car|
   latest_end_date = Date.today
+  last_recorded_kilometers = car.kilometers
+
   5.times do
     start_date = Faker::Date.between(from: latest_end_date + 1, to: latest_end_date + 5)
     end_date = Faker::Date.between(from: start_date + 3, to: start_date + 5)
     latest_end_date = end_date
+    new_kilometers = last_recorded_kilometers + rand(200..800)
 
     Reservation.create!(
       start_date: start_date,
       end_date: end_date,
       car: car,
-      kilometers: rand(20..300),
+      kilometers: new_kilometers,
       done: [true, false].sample,
       user: users.sample
     )
+    last_recorded_kilometers = new_kilometers
   end
   reservations = Reservation.all
 
