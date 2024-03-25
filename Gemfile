@@ -85,3 +85,5 @@ gem "faker", "~> 3.2"
 gem "geocoder", "~> 1.8"
 
 gem "flatpickr", "~> 4.6"
+
+gem "redis", "~> 5.1"
