@@ -9,7 +9,7 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
-    <% if controller_name == 'pages' && action_name != 'dashboard' || controller_name.start_with?('sessions') || controller_name.start_with?('registrations') %>
+    <% if controller_name == 'pages' && action_name == 'home' || controller_name.start_with?('sessions') || controller_name.start_with?('registrations') %>
       <%= render "shared/navbar" %>
       <%= yield %>
       <%= render "shared/footer" %>

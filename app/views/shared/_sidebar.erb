@@ -9,7 +9,7 @@
   <ul class="nav nav-pills flex-column mb-auto">
     <li>
       <a href="#" class="nav-link text-white" aria-current="page">
-        <%= link_to dashboard_path, class: "nav-link text-white #{controller_name == 'pages' ? 'active' : ''}" do %>
+        <%= link_to dashboard_path, class: "nav-link text-white #{controller_name == 'pages' && action_name == 'dashboard' ? 'active' : ''}" do %>
           <i class="fas fa-dashboard pe-2"></i> Tableau de bord
         <% end %>
       </a>
@@ -31,7 +31,7 @@
       <% end %>
     </li>
     <li>
-      <%= link_to team_path, class: "nav-link text-white #{controller_name == 'pages' ? 'active' : ''}" do %>
+      <%= link_to team_path, class: "nav-link text-white #{controller_name == 'pages' && action_name == 'team' ? 'active' : ''}" do %>
         <i class="fas fa-user pe-2"></i> Meet the Team
       <% end %>
     </li>

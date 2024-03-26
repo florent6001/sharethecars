@@ -1,5 +1,4 @@
 .card-member {
-  display: flex;
   justify-content: center;
   overflow: hidden;
   background: white;
@@ -15,14 +14,6 @@
 .member-photo img {
   width: 100%;
   border-radius: 10%;
-}
-
-.team-cards {
-  display: grid;
-  margin: auto;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
-  row-gap: 1em;
 }
 
 .card-member-ul, .card-member-ul li {
