@@ -29,7 +29,7 @@
                   </td>
                   <td class="align-middle"><%= l reservation.start_date %></td>
                   <td class="align-middle"><%= l reservation.end_date %></td>
-                  <td class="align-middle d-flex gap-3">
+                  <td class="align-middle gap-3">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#voiture-<%= reservation.car.id %>">
                       Clôturer
                     </button>
@@ -57,10 +57,10 @@
             <p>Vous êtes sur le point de clôturer votre réservation pour le véhicule "<%= reservation.car.model %>".<br>
               <br>
               Vous pouvez laisser un commentaire ci-dessous pour le suivi du véhicule. Merci de signaler toutes anomalies ou remarques.</p>
-              <%= simple_fields_for :feedback do |p| %>
-                <%= p.input :comment, as: :text, :input_html => { 'rows' => 5 } %>
-              <% end %>
-              <%= f.input :kilometers %>
+            <%= simple_fields_for :feedback do |p| %>
+              <%= p.input :comment, as: :text, :input_html => { 'rows' => 5 } %>
+            <% end %>
+            <%= f.input :kilometers %>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-link" data-bs-dismiss="modal">Annuler</button>

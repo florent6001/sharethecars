@@ -6,7 +6,7 @@
 
 // To style the message itself
 .sender-style, .receiver-style {
-  width: 70%;
+  width: 35%;
   max-width: 550px;
   border-radius: 4px;
   padding: 8px;
@@ -15,9 +15,21 @@
 }
 
 .sender-style {
-  background-color: lightcoral;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #000000;
+  color: #000000; // Couleur de texte
 }
 
 .receiver-style {
-  background-color: lightblue;
+  background-color: #e2edf3; // Fond plus foncé pour l'autre utilisateur
+  border: 1px solid #000000; // Ajouter une bordure si souhaité
+  color: rgb(0, 0, 0); // Texte blanc pour contraste
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; // Rendre l'image ronde
+  border: 2px solid white; // Bordure blanche pour ressortir sur le dégradé
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); // Ombre portée légère pour du relief
 }
