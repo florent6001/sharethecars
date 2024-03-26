@@ -6,21 +6,7 @@
     data-chatroom-subscription-target="messages"
     >
     <% @messages.reverse_each do |message| %>
-      <div class="message-row d-flex align-items-end <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
-        <% if not message.sender?(current_user) %>
-          <div class="px-2">
-            <%= cl_image_tag(message.user.avatar.key, alt: message.user.full_name, class: "avatar", width: 50, crop: :fill) if message.user.avatar.attached? %>
-          </div>
-        <% end %>
-        <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
-          <%= render "shared/message", message: message %>
-        </div>
-        <% if message.sender?(current_user) %>
-          <div class="px-2">
-            <%= cl_image_tag(message.user.avatar.key, alt: message.user.full_name, class: "avatar", width: 50, crop: :fill) if message.user.avatar.attached? %>
-          </div>
-        <% end %>
-      </div>
+      <%= render "shared/message", message: message %>
     <% end %>
   </div>
   <%= simple_form_for [@chatroom, @message], remote: true, html: { } do |f| %>
