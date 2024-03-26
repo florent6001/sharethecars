@@ -3,7 +3,7 @@
     <h1>Tableau de bord</h1>
     <div class="row mt-3">
       <%= render 'shared/dashboard_card', icon: 'hourglass-start', color: 'primary', text: 'Nombre de voitures que vous avez réservé', value: current_user.reservations.count %>
-      <%= render 'shared/dashboard_card', icon: 'road', color: 'secondary', text: 'Kilomètrages moyen par réservations', value: "#{current_user.reservations.average(:kilometers_done)} km" %>
+      <%= render 'shared/dashboard_card', icon: 'road', color: 'secondary', text: 'Kilomètrages moyen par réservations', value: "#{current_user.reservations.average(:kilometers_done) ? current_user.reservations.average(:kilometers_done) : '0'} km" %>
       <%= render 'shared/dashboard_card', icon: 'clock', color: 'success', text: 'Kilomètres total que vous avez effectué', value: "#{current_user.reservations.sum(:kilometers_done)} km" %>
       <%= render 'shared/dashboard_card', icon: 'car', color: 'info', text: 'Nombres de voitures disponible demain', value: @car_availables_tomorrow %>
     </div>
@@ -17,16 +17,19 @@
                 <th class="bg-white">Véhicule</th>
                 <th class="bg-white">Date d'emprunt</th>
                 <th class="bg-white">Date de restitution</th>
-                <th class="bg-white">Actions</th>
+                <th class="bg-white" style="width: 15%">Actions</th>
               </tr>
             </thead>
             <tbody class="list" id="table-latest-review-body">
               <% current_user.pending_reservations.each do |reservation| %>
                 <tr class="hover-actions-trigger btn-reveal-trigger position-static">
-                  <td><%= reservation.car.model %> <small><%= reservation.car.color %></small></td>
-                  <td><%= reservation.start_date %></td>
-                  <td><%= reservation.end_date %></td>
-                  <td class="d-flex gap-3">
+                  <td class="align-middle">
+                    <%= reservation.car.model %><br>
+                    <small><i class="fas fa-rectangle-ad pe-1"></i> <%= reservation.car.plate_number %> <i class="ps-2 pe-1 fas fa-palette"></i><%= reservation.car.color %></small>
+                  </td>
+                  <td class="align-middle"><%= l reservation.start_date %></td>
+                  <td class="align-middle"><%= l reservation.end_date %></td>
+                  <td class="align-middle d-flex gap-3">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#voiture-<%= reservation.car.id %>">
                       Clôturer
                     </button>

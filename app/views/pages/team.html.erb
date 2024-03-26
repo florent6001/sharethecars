@@ -5,9 +5,9 @@
 <div class="team-cards">
   <div class="row p-3">
     <% @team.each do |user| %>
-      <div class="col-md-3 p-2">
+      <div class="col-md-4 p-2">
         <div class="card-member h-100 p-3">
-          <div class="row">
+          <div class="row align-items-start">
             <div class="member-photo col-12 col-md-4 p-2">
               <% if user.avatar.attached? %>
                 <%= cl_image_tag(user.avatar.key, crop: :fill, gravity: :face, class: "avatar-large") %>
@@ -16,25 +16,27 @@
               <% end %>
             </div>
             <div class="description col-12 col-md-8 p-2">
-              <h2 class="text-primary">
+              <h2>
                 <%= user.first_name %> <strong> <%= user.last_name.upcase %> </strong>
               </h2>
               <ul class="card-member-ul">
                 <li>
-                  <i class="fa-solid fa-phone pe-2"></i><a href="tel:<%= user.phone_number %>"><%= user.phone_number %></a>
+                  <i class="fa-solid text-primary fa-phone pe-2"></i><a class="text-decoration-none" href="tel:<%= user.phone_number %>"><%= user.phone_number %></a>
                 </li>
                 <li>
-                  <i class="fa-solid fa-envelope pe-2"></i><a href="mailto:<%= user.email %>"><%= user.email %></a>
+                  <i class="fa-solid text-primary fa-envelope pe-2"></i><a class="text-decoration-none" href="mailto:<%= user.email %>"><%= user.email %></a>
                 </li>
               </ul>
             </div>
           </div>
-          <div class="row pt-2">
-            <p>
-              <strong>Biographie</strong><br>
-              <%= user.bio %>
-            </p>
-          </div>
+          <% if user.bio %>
+            <div class="row pt-2">
+              <p>
+                <i class="fa-solid fa-book pe-2"></i>
+                <%= user.bio %>
+              </p>
+            </div>
+          <% end %>
         </div>
       </div>
     <% end %>
