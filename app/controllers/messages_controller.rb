@@ -8,7 +8,9 @@ class MessagesController < ApplicationController
       ChatroomChannel.broadcast_to(
         @chatroom,
         message: render_to_string(partial: "shared/message", locals: { message: @message }),
-        sender_id: @message.user.id
+        sender_id: @message.user.id,
+        avatar_url: url_for(@message.user.avatar),
+        sender_name: @message.user.full_name
       )
       head :ok
     else
