@@ -24,15 +24,15 @@
         <i class="fas fa-comments pe-2"></i> Discussion
       <% end %>
     </li>
+    <li>
+      <%= link_to team_path, class: "nav-link text-white #{controller_name == 'pages' && action_name == 'team' ? 'active' : ''}" do %>
+        <i class="fas fa-users pe-2"></i> Meet the Team
+      <% end %>
+    </li>
     <hr>
     <li>
       <%= link_to user_path(current_user), class: "nav-link text-white #{controller_name == 'users' && action_name == 'show' ? 'active' : ''}" do %>
         <i class="fas fa-user pe-2"></i> Mon Profil
-      <% end %>
-    </li>
-    <li>
-      <%= link_to team_path, class: "nav-link text-white #{controller_name == 'pages' && action_name == 'team' ? 'active' : ''}" do %>
-        <i class="fas fa-user pe-2"></i> Meet the Team
       <% end %>
     </li>
   </ul>
