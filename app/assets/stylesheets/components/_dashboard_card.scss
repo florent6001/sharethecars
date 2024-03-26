@@ -1,5 +1,11 @@
 .dashboard-card {
   @extend .card, .border-5, .border-end-0, .border-top-0, .border-bottom-0, .shadow, .h-100, .py-2, .bg-light;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+  border-radius: 25px;
+  &:hover {
+    transform: translateY(-5px);
+  }
 }
 
 .dashboard-card-body {

@@ -1,8 +1,13 @@
 .card-trip {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin: 15px 0px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+  border-radius: 30px;
+  &:hover {
+    transform: translateY(-5px);
+  }
 }
 
 .card-trip > img {
@@ -37,4 +42,8 @@
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+.card-img-top {
+  border-radius: 0px;
 }

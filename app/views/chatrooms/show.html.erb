@@ -1,13 +1,17 @@
-<div class="container chatroom" data-controller="chatroom-subscription"
+<div class="container chatroom col-md-8 mt-5"  data-controller="chatroom-subscription"
  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
  data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
-  <h1>#<%= @chatroom.name %></h1>
+  <div class="d-flex text-center">
+    <hr class="flex-grow-1 chatboxligne">
+    <h1 class="px-2"><%= @chatroom.name %></h1>
+    <hr class="flex-grow-1 chatboxligne">
+  </div>
   <div class="messages" data-chatroom-subscription-target="messages">
     <% @messages.reverse_each do |message| %>
       <div class="message-row d-flex align-items-end <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
         <% unless message.sender?(current_user) %>
           <div class="px-2">
-            <%= cl_image_tag(message.user.avatar.key, alt: message.user.full_name, class: "avatar", crop: :fill) if message.user.avatar.attached? %>
+            <%= cl_image_tag(message.user.avatar.key, alt: message.user.full_name, class: "avatar", title:message.user.full_name, crop: :fill) if message.user.avatar.attached? %>
           </div>
         <% end %>
         <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
@@ -15,13 +19,15 @@
         </div>
         <% if message.sender?(current_user) %>
           <div class="px-2">
-            <%= cl_image_tag(message.user.avatar.key, alt: message.user.full_name, class: "avatar", crop: :fill) if message.user.avatar.attached? %>
+            <%= cl_image_tag(message.user.avatar.key, alt: message.user.full_name, class: "avatar",title:message.user.full_name, crop: :fill) if message.user.avatar.attached? %>
           </div>
         <% end %>
       </div>
     <% end %>
   </div>
-  <%= simple_form_for [@chatroom, @message], remote: true, html: { } do |f| %>
-    <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}", input_html: { data: { chatroom_subscription_target: "messageInput" } } %>
-  <% end %>
+  <div class="mt-3">
+    <%= simple_form_for [@chatroom, @message], remote: true, html: { } do |f| %>
+      <%= f.input :content, label: false, placeholder: "Message...", input_html: { data: { chatroom_subscription_target: "messageInput" } } %>
+    <% end %>
+  </div>
 </div>

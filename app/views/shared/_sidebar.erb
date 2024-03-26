@@ -20,13 +20,13 @@
       <% end %>
     </li>
     <li>
-      <%= link_to chatroom_path(current_user.company.chatrooms.first), class: "nav-link text-white #{controller_name == 'chatrooms' && action_name == 'show' ? 'active' : ''}" do %>
-        <i class="fas fa-comments pe-2"></i> Discussion
+      <%= link_to team_path, class: "nav-link text-white #{controller_name == 'pages' && action_name == 'team' ? 'active' : ''}" do %>
+        <i class="fas fa-users pe-2"></i> Rencontrez l'équipe
       <% end %>
     </li>
     <li>
-      <%= link_to team_path, class: "nav-link text-white #{controller_name == 'pages' && action_name == 'team' ? 'active' : ''}" do %>
-        <i class="fas fa-users pe-2"></i> Meet the Team
+      <%= link_to chatroom_path(current_user.company.chatrooms.first), class: "nav-link text-white #{controller_name == 'chatrooms' && action_name == 'show' ? 'active' : ''}" do %>
+        <i class="fas fa-comments pe-2"></i> Discussion
       <% end %>
     </li>
     <hr>

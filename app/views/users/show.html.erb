@@ -3,7 +3,11 @@
     <div class="col-md-3">
       <div class="card shadow">
         <div class="card-header">
-          <h5 class="card-title m-0 text-white">Mes informations</h5>
+          <% if @user == current_user %>
+            <h5 class="card-title m-0">Mes informations</h5>
+          <% else %>
+            <h5 class="card-title m-0">Informations de <%= @user.full_name%></h5>
+          <% end %>
         </div>
         <% if @user.avatar.attached? %>
           <%= cl_image_tag(@user.avatar.key, class: 'card-img-top', crop: :fill, gravity: :face, alt: "Avatar of " + @user.first_name) %>
@@ -18,14 +22,20 @@
             <i class="fas fa-calendar-alt me-2"></i>Membre depuis : <%= @user.created_at.strftime("%d/%m/%Y") %>
           </p>
           <hr>
-          <p class="card-text"><i class="fa-solid fa-book pe-2"></i> <%= @user.bio %></p>
+          <% if @user.bio %>
+            <p class="card-text"><i class="fa-solid fa-book pe-2"></i> <%= @user.bio %></p>
+          <% end %>
         </div>
       </div>
     </div>
     <div class="col-md-8">
       <div class="card shadow mb-3">
         <div class="card-header">
-          <h5 class="card-title m-0 text-white">Derniers commentaires sur mes réservations</h5>
+          <% if @user == current_user %>
+            <h5 class="card-title m-0">Derniers commentaires sur mes réservations</h5>
+          <% else %>
+            <h5 class="card-title m-0">Derniers commentaires sur les réservations de <%= @user.full_name%></h5>
+          <% end %>
         </div>
         <div class="card-body">
           <% @feedbacks.each do |feedback| %>

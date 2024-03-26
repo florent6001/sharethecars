@@ -1,7 +1,6 @@
 <div class="container-fluid pt-4">
   <h1>Meet the Team</h1>
 </div>
-
 <div class="team-cards">
   <div class="row p-3">
     <% @team.each do |user| %>
@@ -9,10 +8,12 @@
         <div class="card-member h-100 p-3">
           <div class="row align-items-start">
             <div class="member-photo col-12 col-md-4 p-2">
-              <% if user.avatar.attached? %>
-                <%= cl_image_tag(user.avatar.key, crop: :fill, gravity: :face, class: "avatar-large") %>
-              <% else %>
-                <%= image_tag 'avatar.png', class:"avatar-large", width: 300 %>
+              <%= link_to user_path(user) do %>
+                <% if user.avatar.attached? %>
+                  <%= cl_image_tag(user.avatar.key, crop: :fill, gravity: :face, class: "avatar-large") %>
+                <% else %>
+                  <%= image_tag 'avatar.png', class:"avatar-large", width: 300 %>
+                <% end %>
               <% end %>
             </div>
             <div class="description col-12 col-md-8 p-2">
