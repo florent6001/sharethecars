@@ -8,26 +8,54 @@
   flex-grow: 1;
   border-radius: 1em;
   box-shadow: 0 2px 10px rgba(0,0,0,1.0);
+  position: relative;
+  z-index: 2;
+
+  .chatroom-video-background {
+    position: absolute;
+    top: 97px;
+    left: 12px;
+    width: 97%;
+    height: 79%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .video-gradient {
+    position: absolute;
+    top: 97px;
+    left: 12px;
+    width: 97%;
+    height: 79%;
+    z-index: 1;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9));
+  }
 
   h1 {
     border-bottom: 1px solid $gray-200;
     margin-bottom: 0;
     padding: 1rem;
+    z-index: 2;
   }
 
   .messages {
     height: 100%;
     overflow: scroll;
     padding: 1rem;
-    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.9)), url('background-chatbox.png');
-    background-size: cover;
-    background-position: center;
+    z-index: 2;
+    overflow-x:hidden;
   }
-}
-.chatboxligne {
-  margin: 3rem;
-  color: inherit;
-  border: 0;
-  border-top: var(--bs-border-width) solid;
-  opacity: 0.80;
+
+  .chatboxligne {
+    margin: 3rem;
+    color: inherit;
+    border: 0;
+    border-top: var(--bs-border-width) solid;
+    opacity: 0.80;
+  }
+
+  .button-chatroom {
+    z-index: 2;
+  }
 }

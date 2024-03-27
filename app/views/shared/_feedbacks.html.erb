@@ -1,14 +1,18 @@
 <% feedbacks.each do |feedback| %>
   <div class="notification box-shadow border">
     <% if feedback.reservation.user.avatar.attached? %>
-      <%= cl_image_tag(feedback.reservation.user.avatar.key, crop: :fill, gravity: :face, class: "avatar-large") %>
+      <%= link_to user_path(feedback.reservation.user) do %>
+        <%= cl_image_tag(feedback.reservation.user.avatar.key, crop: :fill, gravity: :face, class: "avatar-large") %>
+      <% end %>
     <% else %>
-      <%= image_tag 'avatar.png', class:"avatar-large", width: 300 %>
+      <%= link_to user_path(feedback.reservation.user) do %>
+        <%= image_tag 'avatar.png', class: "avatar-large", width: 300 %>
+      <% end %>
     <% end %>
     <div class="notification-content">
       <p><small><%= feedback.reservation.user.first_name %> <%= feedback.reservation.user.last_name %></small></p>
       <p><%= feedback.comment %></p>
-      <p><small>Il y a</small>  <%= time_ago_in_words(feedback.created_at) %></p>
+      <p><small>Il y a</small> <%= time_ago_in_words(feedback.created_at) %></p>
     </div>
   </div>
 <% end %>

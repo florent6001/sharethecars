@@ -3,7 +3,7 @@ import { createConsumer } from "@rails/actioncable"
 
 export default class extends Controller {
   static values = { chatroomId: Number, currentUserId: Number }
-  static targets = ["messages", 'messageInput']
+  static targets = ["messages", "messageInput"]
 
   connect() {
     this.subscription = createConsumer().subscriptions.create(
@@ -19,7 +19,7 @@ export default class extends Controller {
 
   #insertMessageAndScrollDown(data) {
     const currentUserIsSender = this.currentUserIdValue === data.sender_id
-    const messageElement = this.#buildMessageElement(currentUserIsSender, data.message, data.avatar_url, data.sender_name)
+    const messageElement = this.#buildMessageElement(currentUserIsSender, data.message, data.avatar_url, data.sender_name, data.profile_url)
 
     this.messagesTarget.insertAdjacentHTML("beforeend", messageElement)
     this.#scrollDown()
@@ -31,15 +31,13 @@ export default class extends Controller {
   }
 
 
-  #buildMessageElement(currentUserIsSender, message, avatarUrl, userName) {
+  #buildMessageElement(currentUserIsSender, message, avatarUrl, userName, profileUrl) {
     const avatarElement = avatarUrl ?
       `<div class="px-2">
-         <div class="message-avatar-container">
-           <div class="d-flex">
-             <img src="${avatarUrl}" alt="${userName}" class="avatar",>
-            </div>
-          </div>
-        </div>` : '';
+         <a href="${profileUrl}">
+           <img src="${avatarUrl}" alt="${userName}" class="avatar">
+         </a>
+       </div>` : '';
 
     const messageClass = currentUserIsSender ? "sender-style" : "receiver-style";
     const justifyClass = this.#justifyClass(currentUserIsSender);
