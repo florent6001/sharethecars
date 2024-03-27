@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  overflow-x: hidden;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +10,20 @@
 
 .navbar-lewagon .navbar-brand {
   font-family: "Edu NSW ACT Foundation";
+}
+
+@keyframes driveRight {
+  0% {
+    left: -100%; /* Start off-screen to the left */
+  }
+  100% {
+    left: 100%; /* End off-screen to the right */
+  }
+}
+
+.car-gif {
+  position: absolute;
+  bottom: 0;
+  width: 80px;
+  animation: driveRight 15s linear infinite;
 }

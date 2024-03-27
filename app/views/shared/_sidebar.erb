@@ -31,7 +31,7 @@
     </li>
     <hr>
     <li>
-      <%= link_to user_path(current_user), class: "nav-link text-white #{controller_name == 'users' && action_name == 'show' ? 'active' : ''}" do %>
+      <%= link_to user_path(current_user), class: "nav-link text-white #{controller_name == 'users' && action_name == 'show' && params[:id] == current_user.id.to_s ? 'active' : ''}" do %>
         <i class="fas fa-user pe-2"></i> Mon Profil
       <% end %>
     </li>

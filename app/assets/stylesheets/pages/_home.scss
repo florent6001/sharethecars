@@ -35,6 +35,9 @@
 
 .banner {
   background-color: $primary;
+  position: relative;
+  overflow: hidden;
+
 
   h1 {
     font-size: 2.5rem;
@@ -53,6 +56,7 @@
   right: 41.95%;
   top: 104.99%;
   width: 16%;
+  z-index: 2;
 }
 
 .logo-custom {
@@ -66,10 +70,9 @@
 
 .logo-share {
   position: absolute;
-    z-index: 2;
-    right: 44%;
-    top: 108%;
-    width: 12%;
+  right: 46%;
+  top: 64.4%;
+  width: 8%;
 }
 
 

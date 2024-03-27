@@ -1,4 +1,5 @@
 <div class="banner" data-controller="image">
+  <div id="particles-js" class="particles-container"></div>
   <div class="container py-5 position-relative">
     <div class="col-8">
       <h1 data-aos="zoom-in" data-aos-delay="100">
@@ -19,9 +20,9 @@
     <%= image_tag("voiture1.png", data: { image_target: "carImage", 'aos' => "fade-left", 'aos-delay' => 1300 }, class: "img-right", id: "carImage") %>
     <%= image_tag("phare.png", data: { image_target: "carImage", 'aos' => "fade-left", 'aos-delay' => 1500 }, class: "img-right d-none", id: "phare") %>
     <%= image_tag("humain.png", class: "logo-custom", data: { 'aos' => "fade-up-right", 'aos-delay' => 1700 }) %>
-    <%= image_tag("share-the-cars-logo.png", class: "logo-share", data: { 'aos' => "fade-down-left", 'aos-delay' => 1900 }) %>
   </div>
 </div>
+<%= image_tag("share-the-cars-logo.png", class: "logo-share", data: { 'aos' => "fade-down-left", 'aos-delay' => 1900 }) %>
 <%= render "shared/service" %>
 <%= render "shared/temoignages" %>
 <%= render "shared/faq" %>

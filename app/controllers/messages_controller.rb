@@ -1,20 +1,21 @@
 class MessagesController < ApplicationController
   def create
     @chatroom = Chatroom.find(params[:chatroom_id])
-    @message = Message.new(message_params)
-    @message.chatroom = @chatroom
+    @message = @chatroom.messages.new(message_params)
     @message.user = current_user
+
     if @message.save
       ChatroomChannel.broadcast_to(
         @chatroom,
         message: render_to_string(partial: "shared/message", locals: { message: @message }),
         sender_id: @message.user.id,
-        avatar_url: url_for(@message.user.avatar),
-        sender_name: @message.user.full_name
+        avatar_url: @message.user.avatar.attached? ? url_for(@message.user.avatar) : nil,
+        sender_name: @message.user.full_name,
+        profile_url: user_path(@message.user)
       )
       head :ok
     else
-      render "chatrooms/show"
+      @messages = @chatroom.messages.order(created_at: :desc).limit(30)
     end
   end
 
