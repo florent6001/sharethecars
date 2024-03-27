@@ -6,6 +6,7 @@ export default class extends Controller {
   static targets = ["messages", "messageInput"]
 
   connect() {
+    console.log("Connected to ChatroomSubscriptionController")
     this.subscription = createConsumer().subscriptions.create(
       { channel: "ChatroomChannel", id: this.chatroomIdValue },
       { received: data => this.#insertMessageAndScrollDown(data) }
@@ -14,6 +15,7 @@ export default class extends Controller {
   }
 
   disconnect() {
+    console.log("Disconnected from ChatroomSubscriptionController")
     this.subscription.unsubscribe()
   }
 
