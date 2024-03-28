@@ -1,44 +1,132 @@
-<div class="container chatroom col-md-8 my-5"  data-controller="chatroom-subscription"
- data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
- data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
-  <div data-controller="video-background-chatroom">
-    <video autoplay loop muted playsinline class="chatroom-video-background" data-video-background-chatroom-target="video">
-      <source src="https://i.gifer.com/fxk4.mp4" type="video/mp4">
-      Votre navigateur ne supporte pas la balise vidéo.
-    </video>
-  </div>
-  <div class="video-gradient"></div>
-  <div class="d-flex text-center">
-    <hr class="flex-grow-1 chatboxligne">
-    <h1 class="px-2"><%= @chatroom.name %></h1>
-    <hr class="flex-grow-1 chatboxligne">
-  </div>
-  <div class="messages" data-chatroom-subscription-target="messages">
-    <% @messages.reverse_each do |message| %>
-      <div class="message-row d-flex align-items-end <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
-        <% unless message.sender?(current_user) %>
-          <div class="px-2">
-            <%= link_to user_path(message.user) do %>
-              <%= cl_image_tag(message.user.avatar.key, alt: message.user.full_name, class: "avatar", title: message.user.full_name, crop: :fill) if message.user.avatar.attached? %>
+<div class="container-fluid my-5">
+  <div class="row">
+    <div class="col-md-9 chatroom" data-controller="chatroom-subscription"
+    data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
+    data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
+      <div data-controller="video-background-chatroom">
+        <video autoplay loop muted playsinline class="chatroom-video-background" data-video-background-chatroom-target="video">
+          <source src="https://i.gifer.com/fxk4.mp4" type="video/mp4">
+          Votre navigateur ne supporte pas la balise vidéo.
+        </video>
+      </div>
+      <div class="video-gradient"></div>
+      <div class="d-flex text-center">
+        <hr class="flex-grow-1 chatboxligne">
+        <h1 class="px-2"><%= @chatroom.name %></h1>
+        <hr class="flex-grow-1 chatboxligne">
+      </div>
+      <div class="messages" data-chatroom-subscription-target="messages">
+        <% @messages.reverse_each do |message| %>
+          <div class="message-row d-flex align-items-end <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+            <% unless message.sender?(current_user) %>
+              <div class="px-2">
+                <%= link_to user_path(message.user) do %>
+                  <%= cl_image_tag(message.user.avatar.key, alt: message.user.full_name, class: "avatar", title: message.user.full_name, crop: :fill) if message.user.avatar.attached? %>
+                <% end %>
+              </div>
             <% end %>
-          </div>
-        <% end %>
-        <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
-          <%= render "shared/message", message: message %>
-        </div>
-        <% if message.sender?(current_user) %>
-          <div class="px-2">
-            <%= link_to user_path(message.user) do %>
-              <%= cl_image_tag(message.user.avatar.key, alt: message.user.full_name, class: "avatar", title: message.user.full_name, crop: :fill) if message.user.avatar.attached? %>
+            <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+              <%= render "shared/message", message: message %>
+            </div>
+            <% if message.sender?(current_user) %>
+              <div class="px-2">
+                <%= link_to user_path(message.user) do %>
+                  <%= cl_image_tag(message.user.avatar.key, alt: message.user.full_name, class: "avatar", title: message.user.full_name, crop: :fill) if message.user.avatar.attached? %>
+                <% end %>
+              </div>
             <% end %>
           </div>
         <% end %>
       </div>
-    <% end %>
-  </div>
-  <div class="button-chatroom mt-3">
-    <%= simple_form_for [@chatroom, @message] do |f| %>
-      <%= f.input :content, label: false, placeholder: "Message...", input_html: { data: { chatroom_subscription_target: "messageInput" } } %>
-    <% end %>
+      <div class="button-chatroom mt-3">
+        <%= simple_form_for [@chatroom, @message] do |f| %>
+          <%= f.input :content, label: false, placeholder: "Message...", input_html: { data: { chatroom_subscription_target: "messageInput" } } %>
+        <% end %>
+      </div>
+    </div>
+    <div class="utilisateur-chat col-md-2 pt-4">
+      <div class="user-list-card pb-3">
+        <div class="card-body">
+          <div class="online-users">
+            <h5 class="users-title">En ligne</h5>
+            <div class="user-card online">
+              <div class="user-info-chat">
+                <i class="fa-solid fa-user me-2" style="color: #ff6600;"></i>
+                <p>Mayeul BRETON -<span class="user-status online"> En ligne</span></p>
+              </div>
+            </div>
+            <div class="user-card online">
+              <div class="user-info-chat">
+                <i class="fa-solid fa-user me-2" style="color: #ff6600;"></i>
+                <p>Amaranthe LEMAIRE -<span class="user-status online"> En ligne</span></p>
+              </div>
+            </div>
+            <div class="user-card online">
+              <div class="user-info-chat">
+                <i class="fa-solid fa-user me-2" style="color: #ff6600;"></i>
+                <p>Daniel GUASCO -<span class="user-status online"> En ligne</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="offline-users mt-4">
+            <h5 class="users-title">Hors ligne</h5>
+            <div class="user-card offline">
+              <div class="user-info-chat">
+                <i class="fa-solid fa-user me-2" style="color: #555555;"></i>
+                <p>Henri ROCHE -<span class="user-status offline"> Hors ligne</span></p>
+              </div>
+            </div>
+            <div class="user-card offline">
+              <div class="user-info-chat">
+                <i class="fa-solid fa-user me-2" style="color: #555555;"></i>
+                <p>Véronique ROBERT -<span class="user-status offline"> Hors ligne</span></p>
+              </div>
+            </div>
+            <div class="user-card offline">
+              <div class="user-info-chat">
+                <i class="fa-solid fa-user me-2" style="color: #555555;"></i>
+                <p>Frédéric PRÉVOST -<span class="user-status offline"> Hors ligne</span></p>
+              </div>
+            </div>
+            <div class="user-card offline">
+              <div class="user-info-chat">
+                <i class="fa-solid fa-user me-2" style="color: #555555;"></i>
+                <p>Ambroise FLEURY -<span class="user-status offline"> Hors ligne</span></p>
+              </div>
+            </div>
+            <div class="user-card offline">
+              <div class="user-info-chat">
+                <i class="fa-solid fa-user me-2" style="color: #555555;"></i>
+                <p>Althée VINCENT -<span class="user-status offline"> Hors ligne</span></p>
+              </div>
+            </div>
+            <div class="user-card offline">
+              <div class="user-info-chat">
+                <i class="fa-solid fa-user me-2" style="color: #555555;"></i>
+                <p>Zéphirine ROGER -<span class="user-status offline"> Hors ligne</span></p>
+              </div>
+            </div>
+            <div class="user-card offline">
+              <div class="user-info-chat">
+                <i class="fa-solid fa-user me-2" style="color: #555555;"></i>
+                <p>Guenièvre NOËL -<span class="user-status offline"> Hors ligne</span></p>
+              </div>
+            </div>
+            <div class="user-card offline">
+              <div class="user-info-chat">
+                <i class="fa-solid fa-user me-2" style="color: #555555;"></i>
+                <p>Aglaé ROLLAND -<span class="user-status offline"> Hors ligne</span></p>
+              </div>
+            </div>
+            <div class="user-card offline">
+              <div class="user-info-chat">
+                <i class="fa-solid fa-user me-2" style="color: #555555;"></i>
+                <p>Turold MARCHAND -<span class="user-status offline"> Hors ligne</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

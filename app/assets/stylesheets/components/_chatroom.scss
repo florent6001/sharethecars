@@ -5,11 +5,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex-grow: 1;
   border-radius: 1em;
   box-shadow: 0 2px 10px rgba(0,0,0,1.0);
   position: relative;
   z-index: 2;
+  margin-left: 2em;
 
   .chatroom-video-background {
     position: absolute;
@@ -58,4 +58,78 @@
   .button-chatroom {
     z-index: 2;
   }
+}
+
+.user-list-card {
+
+  p {
+    margin: 0;
+
+    .user-status {
+      &.online {
+        color: #28a745;
+      }
+
+      &.offline {
+        color: #dc3545;
+      }
+    }
+  }
+
+  .user-card {
+    padding: 0.57rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 1em;
+    background-color: #fff;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+
+    &.online {
+      border-left: 4px solid #28a745; // Vert pour les utilisateurs en ligne
+    }
+
+    &.offline {
+      border-left: 4px solid #dc3545; // Rouge pour les utilisateurs hors ligne
+    }
+  }
+
+  .me-2 {
+    margin-bottom: 3px;
+  }
+}
+
+.users-title {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background-color: #333; /* Noir pour l'arrière-plan du titre */
+  color: #fff; /* Blanc pour le texte */
+  text-align: center;
+  border-radius: 0.25rem;
+}
+.user-info-chat {
+  display: flex;
+  align-items: center;
+  /* Autres styles */
+}
+
+.online-users .users-title {
+  background-color: #f60; /* Orange pour les utilisateurs en ligne */
+}
+
+.offline-users .users-title {
+  background-color: #555; /* Un noir plus clair ou une autre couleur de votre choix pour les utilisateurs hors ligne */
+}
+
+.utilisateur-chat {
+  background-color: #f9f9f9;
+  margin-top: 9px;
+  border-radius: 1em;
+  box-shadow: 0 2px 10px black;
+  position: relative;
+  margin-left: 2em;
+  width: 20%;
 }
