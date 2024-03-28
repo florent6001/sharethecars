@@ -12,7 +12,7 @@
       <% end %>
       <div class="row">
         <% @cars.each do |car| %>
-          <div class="col-12 col-md-3">
+          <div class="col-12 col-md-4 p-3">
             <%= link_to car_path(car, :start_date => @start_date, :end_date => @end_date), class:"text-decoration-none text-black" do %>
               <div class="card-trip">
                 <%= cl_image_tag(car.photo.key, class: "w-100") %>

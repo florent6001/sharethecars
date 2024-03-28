@@ -18,11 +18,20 @@
 }
 
 .member-photo img {
+  height: 159px;
   width: 100%;
-  border-radius: 10%;
+  object-fit: cover;
+  border-radius: 20%;
+  object-position: top;
 }
 
 .card-member-ul, .card-member-ul li {
   list-style-type: none;
   padding-left: 0px;
+}
+
+.img-profil {
+  max-height: 400px;
+  object-fit: cover;
+  object-position: top;
 }

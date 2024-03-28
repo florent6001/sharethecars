@@ -22,7 +22,11 @@
     <%= image_tag("humain.png", class: "logo-custom", data: { 'aos' => "fade-up-right", 'aos-delay' => 1700 }) %>
   </div>
 </div>
-<%= image_tag("share-the-cars-logo.png", class: "logo-share", data: { 'aos' => "fade-down-left", 'aos-delay' => 1900 }) %>
 <%= render "shared/service" %>
 <%= render "shared/temoignages" %>
 <%= render "shared/faq" %>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+  particlesJS.load('particles-js', '/particles.json', function() {
+  });
+</script>
